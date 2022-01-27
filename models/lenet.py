@@ -28,7 +28,7 @@ class LeNetEncoder(nn.Module):
             nn.MaxPool2d(kernel_size=2),
             nn.ReLU()
         )
-        self.fc1 = nn.Linear(500 * 4 * 4, 500)
+        self.fc1 = nn.Linear(500 * 4 * 4, 5000)
 
     def forward(self, input):
         """Forward the LeNet."""
