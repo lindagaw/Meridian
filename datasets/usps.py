@@ -122,10 +122,12 @@ def get_usps(train):
                                           mean=params.dataset_mean,
                                           std=params.dataset_std)])
 
+    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize([0.5], [0.5])])
+
     # dataset and data loader
     usps_dataset = USPS(root=params.data_root,
                         train=train,
-                        transform=pre_process,
+                        transform=transform,
                         download=True)
 
     usps_data_loader = torch.utils.data.DataLoader(
